@@ -11,6 +11,11 @@ const transporter = nodemailer.createTransport({
     }
 });
 
+// GET route for testing from the browser
+router.get('/', (req, res) => {
+    res.json({ message: 'Mail route is working! Use POST /send to actually send emails.' });
+});
+
 // POST route to send emails
 // Useful payload: { "to": "recipient@example.com", "subject": "Hello", "text": "World" }
 router.post('/send', async (req, res) => {
